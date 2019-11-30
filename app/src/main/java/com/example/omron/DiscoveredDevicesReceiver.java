@@ -14,6 +14,8 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import com.example.omron.DeviceAdapter;
+import com.example.omron.ConnectThread;
+import com.example.omron.ConnectedThread;
 
 import java.io.IOException;
 import java.lang.reflect.Method;
@@ -40,6 +42,8 @@ public class DiscoveredDevicesReceiver extends BroadcastReceiver {
     BluetoothAdapter btAdapter = BluetoothAdapter.getDefaultAdapter();
     private static final UUID MY_UUID = UUID.fromString("fa87c0d0-afac-11de-8a39-0800200c9a66");
     DeviceAdapter adapter;
+	ConnectThread connectThread;
+	ConnectedThread connectedThread;
 
 
     @Override
@@ -82,26 +86,12 @@ public class DiscoveredDevicesReceiver extends BroadcastReceiver {
 
     public void connectToDevice(BluetoothDevice device)
     {
-        BluetoothSocket tmp = null;
-        BluetoothSocket mmSocket = null;
-
-        try
-        {
-            tmp = device.createRfcommSocketToServiceRecord(MY_UUID);
-                    //(BluetoothSocket.TYPE_RFCOMM, -1, true, true, this, 1, null);
-        } catch (IOException e)
-        {
-            Log.e(TAG, "create() failed", e);
-        }
-        mmSocket = tmp;
-
-        btAdapter.cancelDiscovery();
-
-        try {
-            System.out.println("\n\nGUNWO!\n\n");
-            mmSocket.connect();
-        } catch (IOException e) {
-            Log.e(TAG, "GOWNO: ", e);
-        }
+		connectThread = new ConnectThread(device, getApplicationContext());
+		connectThread.run();
+		
+		if (connectThread.isConnected())
+		{
+			connectedThread = new ConnectedThread(connectThread(getSocket()));
+		}
     }
 }

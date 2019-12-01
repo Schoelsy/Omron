@@ -10,26 +10,31 @@
         android:id="@+id/send_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="sendInstruction"
-        android:text="SEND"
-        tools:layout_editor_absoluteX="19dp"
-        tools:layout_editor_absoluteY="17dp" />
+        android:layout_marginTop="17dp"
+        android:onClick="sendInstructionAC01"
+        android:text="SEND AC01"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="19dp" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/Received_TextView_ID"
         android:layout_width="256dp"
         android:layout_height="47dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="44dp"
         android:text="TextView"
-        tools:layout_editor_absoluteX="111dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/Received_Text"
         tools:layout_editor_absoluteY="80dp" />
 
     <EditText
         android:id="@+id/Received_Text"
         android:layout_width="87dp"
         android:layout_height="45dp"
+        android:layout_marginTop="15dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Received:"
-        tools:layout_editor_absoluteX="20dp"
-        tools:layout_editor_absoluteY="80dp" />
+        app:layout_constraintTop_toBottomOf="@+id/send_button"
+        tools:layout_editor_absoluteX="20dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

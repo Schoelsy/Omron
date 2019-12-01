@@ -43,7 +43,7 @@ public class DiscoveredDevicesReceiver extends BroadcastReceiver {
     private static final UUID MY_UUID = UUID.fromString("fa87c0d0-afac-11de-8a39-0800200c9a66");
     DeviceAdapter adapter;
 	ConnectThread connectThread;
-	ConnectedThread connectedThread;
+	public static ConnectedThread connectedThread;
 
 
     @Override
@@ -86,12 +86,17 @@ public class DiscoveredDevicesReceiver extends BroadcastReceiver {
 
     public void connectToDevice(BluetoothDevice device)
     {
-		connectThread = new ConnectThread(device, getApplicationContext());
+		connectThread = new ConnectThread(device, lv.getContext());
 		connectThread.run();
 		
 		if (connectThread.isConnected())
 		{
-			connectedThread = new ConnectedThread(connectThread(getSocket()));
+			connectedThread = new ConnectedThread(connectThread.getSocket());
 		}
+    }
+
+    public static ConnectedThread getConnectedThread()
+    {
+        return connectedThread;
     }
 }

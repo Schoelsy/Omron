@@ -86,5 +86,13 @@ public class Bluetooth extends AppCompatActivity{
             lv.setAdapter(LA);
         }
     }
+
+    @Override
+    public void onDestroy() {
+        System.out.println("DUPA ON DESTROY");
+        super.onDestroy();
+        if (receiver != null)
+            unregisterReceiver(receiver);
+    }
 }
 

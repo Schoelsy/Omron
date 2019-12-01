@@ -9,8 +9,8 @@ import java.io.OutputStream;
 class ConnectedThread extends Thread
  {
     private final BluetoothSocket socket;
-    private final InputStream input;
-    private final OutputStream output;
+    private InputStream input;
+    private OutputStream output;
 
     public ConnectedThread(BluetoothSocket socket)
 	{
@@ -30,8 +30,12 @@ class ConnectedThread extends Thread
 
     public void run() {
 		// change to plc instruction size
-        byte[] buffer = new byte[1024];
+        byte[] buffer = new byte[2];
+        buffer[0] = (byte) 0xAC;
+        buffer[1] = (byte) 0x01;
         int bytes;
+
+        write(buffer);
 
         while (true)
 		{

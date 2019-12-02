@@ -6,6 +6,30 @@
     android:layout_height="match_parent"
     tools:context=".monitoring">
 
+    <EditText
+        android:id="@+id/cell1"
+        android:layout_width="87dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="68dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="cell1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/send_button" />
+
+    <EditText
+        android:id="@+id/cell2"
+        android:layout_width="87dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="128dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="cell2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/send_button" />
+
     <Button
         android:id="@+id/send_button"
         android:layout_width="wrap_content"
@@ -24,17 +48,62 @@
         android:layout_marginEnd="44dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/Received_Text"
-        tools:layout_editor_absoluteY="80dp" />
+        tools:layout_editor_absoluteY="389dp" />
 
     <EditText
         android:id="@+id/Received_Text"
         android:layout_width="87dp"
         android:layout_height="45dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="324dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Received:"
         app:layout_constraintTop_toBottomOf="@+id/send_button"
-        tools:layout_editor_absoluteX="20dp" />
+        tools:layout_editor_absoluteX="24dp" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="119dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/send_button" />
+
+    <Button
+        android:id="@+id/send_button_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="69dp"
+        android:onClick="readArea"
+        android:text="Read Area"
+        app:layout_constraintStart_toEndOf="@+id/spinner"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/cell3"
+        android:layout_width="92dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="22dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="cell3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cell2" />
+
+    <EditText
+        android:id="@+id/cell4"
+        android:layout_width="86dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="cell4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cell3" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -26,6 +26,12 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void showMonitoring(View v)
+    {
+        Intent intent = new Intent(getApplicationContext(), monitoring.class );
+        startActivity(intent);
+    }
+
     public void onExitButton(View view){
         AlertDialog.Builder aDB = new AlertDialog.Builder(this);
         aDB.setMessage("Czy na pewno chcesz wyjść?");

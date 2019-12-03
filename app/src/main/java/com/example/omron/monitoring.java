@@ -51,11 +51,45 @@ public class monitoring extends AppCompatActivity {
         String msg = dynamicSpinner.getSelectedItem().toString();
         System.out.println("DUPA przed " + msg);
 
-        TextView cellValue = (TextView)findViewById(R.id.cell1);
+        TextView cell1 = (TextView)findViewById(R.id.cell1);
 
-        System.out.println("DUPA cellValue " + cellValue.getText().toString());
-        int cellIntValue = Integer.parseInt(cellValue.getText().toString());
+        if (!(cell1.getText() != ""))
+        {
+            System.out.println("DUPA cellValue " + cell1.getText().toString());
+            int cellIntValue = Integer.parseInt(cell1.getText().toString());
+            TextView cell1value = findViewById(R.id.cell1value);
+            connectedThread.readArea(msg, cellIntValue, cell1value);
+        }
 
-        connectedThread.readArea(msg, cellIntValue);
+        TextView cell2 = (TextView)findViewById(R.id.cell2);
+
+        if (!(cell1.getText() != ""))
+        {
+            System.out.println("DUPA cellValue " + cell2.getText().toString());
+            int cellIntValue = Integer.parseInt(cell2.getText().toString());
+            TextView cell2value = findViewById(R.id.cell2value);
+            connectedThread.readArea(msg, cellIntValue, cell2value);
+        }
+
+        TextView cell3 = (TextView)findViewById(R.id.cell3);
+
+        if (!(cell1.getText() != ""))
+        {
+            System.out.println("DUPA cellValue " + cell3.getText().toString());
+            int cellIntValue = Integer.parseInt(cell3.getText().toString());
+            TextView cell3value = findViewById(R.id.cell3value);
+            connectedThread.readArea(msg, cellIntValue, cell3value);
+        }
+
+        TextView cell4 = (TextView)findViewById(R.id.cell4);
+
+        if (!(cell1.getText() != ""))
+        {
+            System.out.println("DUPA cellValue " + cell4.getText().toString());
+            int cellIntValue = Integer.parseInt(cell4.getText().toString());
+            TextView cell4value = findViewById(R.id.cell4value);
+            connectedThread.readArea(msg, cellIntValue, cell4value);
+        }
+
     }
 }
